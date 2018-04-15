@@ -62,11 +62,80 @@ type
 
     method removeStationFromFavorites(station:Station);
     begin
+      var defaultRealm := RLMRealm.defaultRealm;
+      defaultRealm.beginWriteTransaction;
+
+
+      if(station is PersonalStation)then
+      begin
+        var ps := station as PersonalStation;
+        var fav := Favourite.allObjectsInRealm(defaultRealm).FirstOrDefault(r -> r.PWSId = ps.Id);
+
+        if(assigned(fav))then
+        begin
+          defaultRealm.deleteObject(fav);
+        end;
+
+      end
+      else if(station is AirportStation)then
+      begin
+        var airS := station as AirportStation;
+
+        var fav := Favourite.allObjectsInRealm(defaultRealm).FirstOrDefault(r -> r.ICAO = airS.ICAO);
+
+        if(assigned(fav))then
+        begin
+          defaultRealm.deleteObject(fav);
+        end;
+
+
+      end
+      else
+      begin
+        raise new NotImplementedException;
+      end;
+
+      defaultRealm.commitWriteTransaction;
+
 
     end;
 
     method addStationToFavorites(station:Station);
     begin
+
+      var newFavourite:Favourite := nil;
+      var maxValue:Integer := 0;
+
+      if(Favourite.allObjectsInRealm(RLMRealm.defaultRealm).Any)then
+      begin
+        maxValue := Favourite.allObjectsInRealm(RLMRealm.defaultRealm).Max(r -> Favourite(r).Id);
+      end;
+
+
+      if(station is PersonalStation)then
+      begin
+        var ps := station as PersonalStation;
+        newFavourite := new Favourite(Id:=maxValue+1, Neighbourhood := ps.Neighborhood, PWSId := ps.Id, FavouriteType:=Favourite.PersonalWeatherStation);
+      end
+      else if(station is AirportStation)then
+      begin
+        var airS := station as AirportStation;
+        newFavourite := new Favourite(Id:=maxValue+1, city := airS.City, ICAO := airS.ICAO, FavouriteType:=Favourite.Airport);
+      end
+      else
+      begin
+        raise new NotImplementedException;
+      end;
+
+      if(assigned(newFavourite))then
+      begin
+
+        var defaultRealm := RLMRealm.defaultRealm;
+        defaultRealm.beginWriteTransaction;
+        defaultRealm.addObject(newFavourite);
+        defaultRealm.commitWriteTransaction;
+
+      end;
 
     end;
 

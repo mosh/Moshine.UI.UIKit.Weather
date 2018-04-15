@@ -20,6 +20,16 @@ type
     lastLocation:CLLocationCoordinate2D;
     updatedLastLocation:Boolean := false;
 
+    method loadFavourites;
+    begin
+      self._favouriteStations.removeAllObjects;
+      var someFavourites := self._service.Favourites;
+      for each item in someFavourites do
+        begin
+        self._favouriteStations.addObject(item);
+      end;
+    end;
+
     method locationUpdate(someLocation:CLLocation);
     begin
 
@@ -171,7 +181,7 @@ type
             var station := indexPathAsStation(indexPath);
 
             self._service.addStationToFavorites(station);
-
+            self.loadFavourites;
             self.tableView.reloadData;
 
             completionHandler(true);
@@ -186,7 +196,7 @@ type
           var station := indexPathAsStation(indexPath);
 
           self._service.removeStationFromFavorites(station);
-
+          self.loadFavourites;
           self.tableView.reloadData;
 
           completionHandler(true);
@@ -227,18 +237,14 @@ type
       result := self;
     end;
 
+
     method viewDidAppear(animated: BOOL); override;
     begin
       inherited viewDidAppear(animated);
 
       NSLog('%@','viewDidAppear');
 
-      self._favouriteStations.removeAllObjects;
-      var someFavourites := self._service.Favourites;
-      for each item in someFavourites do
-        begin
-        self._favouriteStations.addObject(item);
-      end;
+      loadFavourites;
 
       self.tableView.reloadData;
 
