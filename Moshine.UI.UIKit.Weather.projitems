@@ -16,5 +16,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)FavouriteExtensions.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)LocationExtensions.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)StationExtensions.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)StationsTableViewController.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)IAppCoordinatorDelegate.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)IWeatherUpdatesCoordinator.pas" />
   </ItemGroup>
 </Project>
