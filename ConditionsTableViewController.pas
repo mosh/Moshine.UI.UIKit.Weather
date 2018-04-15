@@ -10,6 +10,7 @@ type
   [IBObject]
   ConditionsTableViewController = public class(UITableViewController)
   private
+    _service:WeatherService;
   protected
 
     {$REGION Table view data source}
@@ -99,7 +100,7 @@ type
       if(assigned(self.WeatherStation))then
       begin
 
-        self.Service.conditionsForStation(self.WeatherStation) callback(method(someConditions:Conditions) begin
+        self._service.conditionsForStation(self.WeatherStation) callback(method(someConditions:Conditions) begin
           _conditions := someConditions;
           self.tableView.reloadData;
 
@@ -113,6 +114,13 @@ type
 
   public
     property WeatherStation:Station;
+
+    constructor withService(service:WeatherService);
+    begin
+      inherited constructor;
+
+      _service := service;
+    end;
 
     method init: instancetype; override;
     begin

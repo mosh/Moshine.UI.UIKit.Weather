@@ -15,5 +15,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Models\DataObject.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)FavouriteExtensions.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)LocationExtensions.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)StationExtensions.pas" />
   </ItemGroup>
 </Project>
