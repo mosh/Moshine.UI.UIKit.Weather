@@ -270,6 +270,9 @@ type
       var addButton := new UIBarButtonItem withImage(UIImage.imageNamed('RefreshImage')) style(UIBarButtonItemStyle.Plain) target(self) action(selector(refreshAction:));
       items.addObject(addButton);
 
+      var anotherButton := new UIBarButtonItem withImage(UIImage.imageNamed('StationImage')) style(UIBarButtonItemStyle.Plain) target(self) action(selector(stationAction:));
+      items.addObject(anotherButton);
+
       self.setToolbarItems(items) animated(true);
 
     end;
@@ -277,6 +280,15 @@ type
     [IBAction]
     method refreshAction(sender:id);
     begin
+    end;
+
+    [IBAction]
+    method stationAction(sender:id);
+    begin
+      var controller := new FindStationsViewController;
+
+      navigationController.pushViewController(controller) animated(true);
+
     end;
 
 

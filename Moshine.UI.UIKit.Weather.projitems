@@ -19,5 +19,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)StationsTableViewController.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)IAppCoordinatorDelegate.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)IWeatherUpdatesCoordinator.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)FindStationsViewController.pas" />
   </ItemGroup>
 </Project>
