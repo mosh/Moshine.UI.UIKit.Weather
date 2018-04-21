@@ -87,7 +87,7 @@ type
 
     method tableView(tableView: UITableView) cellForRowAtIndexPath(indexPath: NSIndexPath): UITableViewCell;
     begin
-      var CellIdentifier := 'RootViewControllerCell';
+      var CellIdentifier := 'StationsTableViewControllerCell';
 
       result := tableView.dequeueReusableCellWithIdentifier(CellIdentifier);
       if not assigned(result) then
