@@ -137,11 +137,13 @@ type
 
     method tableView(tableView: UITableView) commitEditingStyle(editingStyle: UITableViewCellEditingStyle) forRowAtIndexPath(indexPath: NSIndexPath);
     begin
-      if (editingStyle = UITableViewCellEditingStyle.UITableViewCellEditingStyleDelete) then begin
+      if (editingStyle = UITableViewCellEditingStyle.UITableViewCellEditingStyleDelete) then
+      begin
         // Delete the row from the data source
         tableView.deleteRowsAtIndexPaths([indexPath]) withRowAnimation(UITableViewRowAnimation.UITableViewRowAnimationFade);
       end
-      else if (editingStyle = UITableViewCellEditingStyle.UITableViewCellEditingStyleInsert) then begin
+      else if (editingStyle = UITableViewCellEditingStyle.UITableViewCellEditingStyleInsert) then
+      begin
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
       end;
     end;

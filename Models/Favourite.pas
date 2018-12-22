@@ -5,7 +5,6 @@ uses
 
 type
 
-
   Favourite = public class(DataObject)
   private
   protected

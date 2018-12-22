@@ -68,12 +68,7 @@ type
 
           self._service.stationsForLocation(centerCoordinate) callback(method (stations:NSArray<Station>)begin
 
-              self._locatedStations.removeAllObjects;
-              self._locatedStations.addObjectsFromArray(stations);
-              self._tableView.reloadData;
-
-              self._mapView.addAnnotations(self._locatedStations);
-
+              replaceWithNewStations(stations);
             end);
 
           _lastLocationCordinate := centerCoordinate;
@@ -136,6 +131,54 @@ type
       end;
 
     end;
+
+    method replaceWithNewStations(stations:NSArray<Station>);
+    begin
+      self._mapView.removeAnnotations(self._locatedStations);
+      self._locatedStations.removeAllObjects;
+
+      self._locatedStations.addObjectsFromArray(stations);
+      self._mapView.addAnnotations(self._locatedStations);
+
+      self._tableView.reloadData;
+
+    end;
+
+    {$REGION Table view delegate}
+    method tableView(tableView: UITableView) didSelectRowAtIndexPath(indexPath: NSIndexPath);
+    begin
+
+      var conditionsController := new ConditionsTableViewController withService(self._service);
+
+      conditionsController.WeatherStation := self._locatedStations[indexPath.row];
+
+      navigationController.pushViewController(conditionsController) animated(true);
+
+    end;
+
+    method tableView(tableView:UITableView) trailingSwipeActionsConfigurationForRowAtIndexPath(indexPath: NSIndexPath):UISwipeActionsConfiguration;
+    begin
+
+      var actions:NSArray := [];
+
+      var action := UIContextualAction.contextualActionWithStyle(UIContextualActionStyle.Normal) title('Favourite') handler(method (action:UIContextualAction;sourceView:UIView;completionHandler:block(actionPerformed:Boolean)) begin
+
+          var station := self._locatedStations[indexPath.row];
+
+          self._service.addStationToFavorites(station);
+
+          completionHandler(true);
+        end);
+
+      actions := [action];
+
+      exit UISwipeActionsConfiguration.configurationWithActions(actions);
+
+    end;
+
+
+    {$ENDREGION}
+
 
   public
 
