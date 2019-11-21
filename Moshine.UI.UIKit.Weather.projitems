@@ -10,15 +10,16 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)ConditionsTableViewController.pas" />
-    <Compile Include="$(MSBuildThisFileDirectory)WeatherService.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)Models\Favourite.pas" />
-    <Compile Include="$(MSBuildThisFileDirectory)Models\DataObject.pas" />
-    <Compile Include="$(MSBuildThisFileDirectory)FavouriteExtensions.pas" />
-    <Compile Include="$(MSBuildThisFileDirectory)LocationExtensions.pas" />
-    <Compile Include="$(MSBuildThisFileDirectory)StationExtensions.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)StationsTableViewController.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)IAppCoordinatorDelegate.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)IWeatherUpdatesCoordinator.pas" />
     <Compile Include="$(MSBuildThisFileDirectory)FindStationsViewController.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)MapViewController.pas" />
+    <Xib Include="$(MSBuildThisFileDirectory)MapViewController.xib" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\StationExtensions.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\FavouriteExtensions.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Extensions\LocationExtensions.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)Services\WeatherService.pas" />
   </ItemGroup>
 </Project>

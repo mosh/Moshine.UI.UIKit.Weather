@@ -5,6 +5,8 @@ uses
   Moshine.Api.Weather.Models.WeatherUnderground,
   Moshine.UI.UIKit.Weather,
   Moshine.UI.UIKit.Weather.Models,
+  Moshine.UI.UIKit.Weather.Services,
+  Moshine.UI.UIKit.Weather.Extensions,
   UIKit;
 
 type
@@ -225,7 +227,7 @@ type
 
   public
 
-    method initWithService(service:WeatherService) withCoordinator(coordinator:IWeatherUpdatesCoordinator) : instancetype;
+    method initWithService(service:WeatherService) withCoordinator(coordinator:IWeatherUpdatesCoordinator) : InstanceType;
     begin
       self := inherited initWithStyle(UITableViewStyle.UITableViewStylePlain);
       if assigned(self) then

@@ -1,7 +1,7 @@
 ﻿namespace Moshine.UI.UIKit.Weather.Models;
 
 uses
-  Foundation;
+  Foundation, iOSApp.Core.Storage.Data;
 
 type
 

@@ -1,4 +1,4 @@
-﻿namespace Moshine.UI.UIKit.Weather;
+﻿namespace Moshine.UI.UIKit.Weather.Extensions;
 
 uses
   Foundation,

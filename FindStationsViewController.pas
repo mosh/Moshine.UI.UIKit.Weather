@@ -3,6 +3,8 @@
 uses
   MapKit,
   Moshine.Api.Weather.Models.WeatherUnderground,
+  Moshine.UI.UIKit.Weather.Services,
+  Moshine.UI.UIKit.Weather.Extensions,
   PureLayout,
   UIKit;
 
@@ -99,7 +101,7 @@ type
 
     method tableView(tableView: UITableView) numberOfRowsInSection(section: NSInteger): NSInteger;
     begin
-      exit _locatedStations.Count;
+      exit _locatedStations.count;
     end;
 
     method tableView(tableView: UITableView) cellForRowAtIndexPath(indexPath: NSIndexPath): UITableViewCell;
@@ -182,7 +184,7 @@ type
 
   public
 
-    method initWithService(service:WeatherService) : instancetype;
+    method initWithService(service:WeatherService) : InstanceType;
     begin
       self := inherited init;
       if assigned(self) then

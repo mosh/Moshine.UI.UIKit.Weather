@@ -1,4 +1,4 @@
-﻿namespace WeatherUITableView;
+﻿namespace Moshine.UI.UIKit.Weather.Extensions;
 
 uses
     Moshine.Api.Weather.Models.WeatherUnderground;

@@ -2,8 +2,6 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Label="Globals">
     <ProjectGuid>{7E621E58-D16F-40C7-95D2-F05E246168C2}</ProjectGuid>
-  </PropertyGroup>
-  <PropertyGroup>
     <RootNamespace>Moshine.UI.UIKit.Weather</RootNamespace>
   </PropertyGroup>
   <Import Project="Moshine.UI.UIKit.Weather.projitems" Label="Shared" />

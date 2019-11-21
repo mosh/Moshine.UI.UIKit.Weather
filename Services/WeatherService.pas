@@ -1,4 +1,4 @@
-﻿namespace Moshine.UI.UIKit.Weather;
+﻿namespace Moshine.UI.UIKit.Weather.Services;
 
 uses
   CoreLocation,
@@ -6,7 +6,7 @@ uses
   Moshine.Api.Weather.Models.WeatherUnderground,
   Moshine.UI.UIKit.Weather.Models,
   RemObjects.Elements.Linq,
-  Realm.Realm;
+  Realm;
 
 type
 
@@ -120,7 +120,7 @@ type
       else if(station is AirportStation)then
       begin
         var airS := station as AirportStation;
-        newFavourite := new Favourite(Id:=maxValue+1, city := airS.City, ICAO := airS.ICAO, FavouriteType:=Favourite.Airport);
+        newFavourite := new Favourite(Id:=maxValue+1, City := airS.City, ICAO := airS.ICAO, FavouriteType:=Favourite.Airport);
       end
       else
       begin

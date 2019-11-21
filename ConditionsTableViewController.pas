@@ -4,6 +4,8 @@ uses
   iOSApp.Core,
   Moshine.Api.Weather.Models.WeatherUnderground,
   Moshine.UI.UIKit,
+  Moshine.UI.UIKit.Weather.Extensions,
+  Moshine.UI.UIKit.Weather.Services,
   UIKit;
 
 type
@@ -122,7 +124,7 @@ type
       _service := service;
     end;
 
-    method init: instancetype; override;
+    method init: InstanceType; override;
     begin
       self := inherited initWithStyle(UITableViewStyle.UITableViewStylePlain);
       if assigned(self) then
