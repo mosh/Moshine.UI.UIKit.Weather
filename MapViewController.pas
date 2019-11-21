@@ -14,6 +14,8 @@ type
 
     property weatherMapView:AWFWeatherMap;
     property timelineView:AWFTimelineView;
+    property Location:CLLocationCoordinate2D;
+    property Name:String;
 
     method init: InstanceType; override;
     begin
@@ -62,12 +64,7 @@ type
       self.timelineView.playButton.addTarget(self) action(selector(toggleAnimation:)) forControlEvents(UIControlEvents.TouchUpInside);
       self.weatherMapView.goToTime(NSDate.date());
 
-      var zoomLocation : CLLocationCoordinate2D;
-      zoomLocation.latitude := 40.281516;
-      zoomLocation.longitude := -57.580806;
-
-
-      setBoat(zoomLocation,'My boat');
+      setBoat(self.Location, self.Name);
 
     end;
 
