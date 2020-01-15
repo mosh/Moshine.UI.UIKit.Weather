@@ -28,11 +28,14 @@ type
           var mapView := view as MKMapView;
           mapView.setRegion(viewRegion) animated(true);
 
+
           var boat := new MKPointAnnotation;
           boat.title := name;
           boat.coordinate := zoomLocation;
           mapView.addAnnotation(boat);
           mapView.zoomEnabled := true;
+
+
         end;
       end;
 
@@ -65,6 +68,7 @@ type
       inherited viewDidLoad;
 
       var config := AWFWeatherMapConfig.config;
+      config.showsCountyLines := true;
       config.shouldApplyWaterMaskToSurfaceLayers := false;
 
       weatherMapView := new AWFWeatherMap WithMapType(AWFWeatherMapType.Apple) config(config);
