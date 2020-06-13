@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <RootNamespace>libMoshine.UI.UIKit.Weather</RootNamespace>
+    <ProjectGuid>{64EC64DB-B49B-4740-A7F8-A2E68D96FF09}</ProjectGuid>
+    <OutputType>StaticLibrary</OutputType>
+    <AssemblyName>libMoshine.UI.UIKit.Weather</AssemblyName>
+    <Configuration Condition="'$(Configuration)' == ''">Release</Configuration>
+    <SDK>iOS</SDK>
+    <MangleTypeNames>True</MangleTypeNames>
+    <CreateHeaderFile>True</CreateHeaderFile>
+    <DefaultUses>RemObjects.Elements.RTL</DefaultUses>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <Optimize>False</Optimize>
+    <OutputPath>.\Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;</DefineConstants>
+    <GenerateDebugInfo>True</GenerateDebugInfo>
+    <EnableAsserts>True</EnableAsserts>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>.\Bin\Release</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CoreGraphics" />
+    <Reference Include="Foundation" />
+    <Reference Include="UIKit" />
+    <Reference Include="rtl" />
+    <Reference Include="libToffee" />
+    <Reference Include="libElements" />
+    <RemoteProjectReference Include="github.com/mosh/ImportSolution/Realm.elements:*">
+      <Private>True</Private>
+    </RemoteProjectReference>
+    <RemoteProjectReference Include="github.com/mosh/ImportSolution/PureLayout.elements:*">
+      <Private>True</Private>
+    </RemoteProjectReference>
+    <RemoteProjectReference Include="github.com/Mosh/iOSApp.Core/libiOSApp.Core.elements:*">
+      <Private>True</Private>
+    </RemoteProjectReference>
+    <RemoteProjectReference Include="github.com/Mosh/Moshine.Api.Weather/libMoshine.Api.Weather.elements:*">
+      <Private>True</Private>
+    </RemoteProjectReference>
+    <RemoteProjectReference Include="github.com/mosh/Moshine.Foundation/libMoshine.Foundation.elements:*">
+      <Private>True</Private>
+    </RemoteProjectReference>
+    <Reference Include="MapKit" />
+    <RemoteProjectReference Include="github.com/mosh/ImportSolution/AerisCore/AerisCore.elements:*">
+      <Private>True</Private>
+    </RemoteProjectReference>
+    <RemoteProjectReference Include="github.com/mosh/ImportSolution/AerisCoreUI/AerisCoreUI.elements:*">
+      <Private>True</Private>
+    </RemoteProjectReference>
+    <RemoteProjectReference Include="github.com/mosh/ImportSolution/AerisWeatherKit/AerisWeatherKit.elements:*">
+      <Private>True</Private>
+    </RemoteProjectReference>
+    <RemoteProjectReference Include="github.com/mosh/ImportSolution/AerisMapKit/AerisMapKit.elements:*">
+      <Private>True</Private>
+    </RemoteProjectReference>
+
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\RemObjects Software\Elements\RemObjects.Elements.Toffee.targets" />
+  <Import Project="Moshine.UI.UIKit.Weather.Shared.projitems" Label="Shared" />
+  <Import Project="Moshine.UI.UIKit.Weather.Shared.projitems" Label="Shared" />
+</Project>

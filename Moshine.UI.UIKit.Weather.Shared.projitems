@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{7E621E58-D16F-40C7-95D2-F05E246168C2}</SharedGUID>
+    <Import_RootNamespace>Moshine.UI.UIKit.Weather</Import_RootNamespace>
+    <ProjectGuid>{7E621E58-D16F-40C7-95D2-F05E246168C2}</ProjectGuid>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Models\Favourite.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)IAppCoordinatorDelegate.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)IWeatherUpdatesCoordinator.pas" />
+    <Compile Include="$(MSBuildThisFileDirectory)MapViewController.pas" />
+    <Xib Include="$(MSBuildThisFileDirectory)MapViewController.xib" />
+  </ItemGroup>
+</Project>
